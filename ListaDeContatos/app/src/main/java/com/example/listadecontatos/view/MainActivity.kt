@@ -41,4 +41,13 @@ class MainActivity : AppCompatActivity() {
             Log.i("info_db", "id: ${it.id} - nome: ${it.nome} - email: ${it.email} - telefeno: ${it.telefone}")
         }
     }
+
+    override fun onResume(){
+        super.onResume()
+
+        val listaDeContatos = ContatoDAO(this).listar()
+        listaDeContatos.forEach {
+            Log.i("info_db", "id: ${it.id} - nome: ${it.nome} - email: ${it.email} - telefeno: ${it.telefone}")
+        }
+    }
 }
